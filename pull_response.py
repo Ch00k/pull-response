@@ -28,12 +28,13 @@ GITHUB_REPOS = [
     "fleet-charging",
     "fleet-optimizer",
     "fleet-meter",
+    "fleet-em",
     "es-config",
     "energy-cost",
-    "energy-management",
     "telematics",
     "cppyutils",
-    "es-infrastructure",
+    "vehicle-management",
+    "vehicle-preconditioning",
 ]
 
 
@@ -121,8 +122,6 @@ if __name__ == "__main__":
         created_dt_end = now
         created_dt_range = (created_dt_start, created_dt_end)
 
-        last_created_dt_end = created_dt_end
-
         print("All datetimes are in UTC")
         print(now)
         print(
@@ -132,7 +131,12 @@ if __name__ == "__main__":
         )
         print()
 
-        main(created_dt_range)
+        try:
+            main(created_dt_range)
+        except Exception as e:
+            print(e)
+        else:
+            last_created_dt_end = created_dt_end
 
         print(f"Sleeping for {int(sleep_time / 60)} minutes")
         print()
