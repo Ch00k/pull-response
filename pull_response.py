@@ -22,20 +22,7 @@ SLACK_URL = "https://slack.com/api/chat.postMessage"
 SLACK_CHANNEL = env.str("SLACK_CHANNEL")
 SLACK_TOKEN = env.str("SLACK_TOKEN")
 
-GITHUB_REPOS = [
-    "fleet-platform",
-    "fleet-alerts",
-    "fleet-charging",
-    "fleet-optimizer",
-    "fleet-meter",
-    "fleet-em",
-    "es-config",
-    "energy-cost",
-    "telematics",
-    "cppyutils",
-    "vehicle-management",
-    "vehicle-preconditioning",
-]
+GITHUB_REPOS = env.list("GITHUB_REPOS")
 
 
 @dataclass
