@@ -22,6 +22,7 @@ SLACK_URL = "https://slack.com/api/chat.postMessage"
 SLACK_CHANNEL = env.str("SLACK_CHANNEL")
 SLACK_TOKEN = env.str("SLACK_TOKEN")
 
+GITHUB_PROFILE = env.str("GITHUB_PROFILE")
 GITHUB_REPOS = env.list("GITHUB_REPOS")
 
 
@@ -43,7 +44,7 @@ def get_pull_requests(repo: str, created_dt_range: Tuple[datetime.datetime, date
         "gh",
         "pr",
         "--repo",
-        f"ChargePoint/{repo}",
+        f"{GITHUB_PROFILE}/{repo}",
         "list",
         "--search",
         f"created:{created_dt_start}..{created_dt_end} -label:dependencies",
